@@ -4,7 +4,7 @@ When it comes to hacking, knowledge is power. The more knowledge you have about 
 
 Say we have been given an IP (or multiple IP addresses) to perform a security audit on. Before we do anything else, we need to get an idea of the “landscape” we are attacking. What this means is that we need to establish which services are running on the targets. For example, perhaps one of them is running a webserver, and another is acting as a Windows Active Directory Domain Controller. The first stage in establishing this “map” of the landscape is something called port scanning. When a computer runs a network service, it opens a networking construct called a “port” to receive the connection.  Ports are necessary for making multiple network requests or having multiple services available. For example, when you load several webpages at once in a web browser, the program must have some way of determining which tab is loading which web page. This is done by establishing connections to the remote webservers using different ports on your local machine. Equally, if you want a server to be able to run more than one service (for example, perhaps you want your webserver to run both HTTP and HTTPS versions of the site), then you need some way to direct the traffic to the appropriate service. Once again, ports are the solution to this. Network connections are made between two ports – an open port listening on the server and a randomly selected port on your own computer. For example, when you connect to a web page, your computer may open port 49534 to connect to the server’s port 443.
 
-![Server-Connection](../Try-hack-me/nmap-images/Introduction.png "Server-Connection")
+![Server-Connection](./nmap-images/Introduction.png "Server-Connection")
 
 
 As in the previous example, the diagram shows what happens when you connect to numerous websites at the same time. Your computer opens up a different, high-numbered port (at random), which it uses for all its communications with the remote server.
@@ -117,9 +117,9 @@ To understand TCP Connect scans (**-sT**), it's important that you're comfortabl
 
 As a brief recap, the three-way handshake consists of three stages. First the connecting terminal (our attacking machine, in this instance) sends a TCP request to the target server with the SYN flag set. The server then acknowledges this packet with a TCP response containing the SYN flag, as well as the ACK flag. Finally, our terminal completes the handshake by sending a TCP request with the ACK flag set.
 
-![ConnecT-Scan-Diagram](../Try-hack-me/nmap-images/TCP-Connect-Scans-1.png "ConnecT-Scan-Diagram")
+![ConnecT-Scan-Diagram](./nmap-images/TCP-Connect-Scans-1.png "ConnecT-Scan-Diagram")
 
-![ConnecT-Scan-Diagram](../Try-hack-me/nmap-images/TCP-Connect-Scans-2.png "ConnecT-Scan-Diagram")
+![ConnecT-Scan-Diagram](./Try-hack-me/nmap-images/TCP-Connect-Scans-2.png "ConnecT-Scan-Diagram")
 
 This is one of the fundamental principles of TCP/IP networking, but how does it relate to Nmap?
 
@@ -131,7 +131,7 @@ For example, if a port is closed, RFC 9293 states that:
 
 In other words, if Nmap sends a TCP request with the SYN flag set to a closed port, the target server will respond with a TCP packet with the RST (Reset) flag set. By this response, Nmap can establish that the port is closed.
 
-![ConnecT-Scan-Diagram](../Try-hack-me/nmap-images/TCP-Connect-Scans-3.png "ConnecT-Scan-Diagram")
+![ConnecT-Scan-Diagram](./nmap-images/TCP-Connect-Scans-3.png "ConnecT-Scan-Diagram")
 
 If, however, the request is sent to an open port, the target will respond with a TCP packet with the SYN/ACK flags set. Nmap then marks this port as being open (and completes the handshake by sending back a TCP packet with ACK set).
 
