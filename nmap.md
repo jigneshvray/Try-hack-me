@@ -119,7 +119,7 @@ As a brief recap, the three-way handshake consists of three stages. First the co
 
 ![ConnecT-Scan-Diagram](./nmap-images/TCP-Connect-Scans-1.png "ConnecT-Scan-Diagram")
 
-![ConnecT-Scan-Diagram](./Try-hack-me/nmap-images/TCP-Connect-Scans-2.png "ConnecT-Scan-Diagram")
+![ConnecT-Scan-Diagram](./nmap-images/TCP-Connect-Scans-2.png "ConnecT-Scan-Diagram")
 
 This is one of the fundamental principles of TCP/IP networking, but how does it relate to Nmap?
 
